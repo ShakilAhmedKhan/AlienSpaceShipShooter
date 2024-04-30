@@ -34,7 +34,8 @@ public class SpaceShooter extends View {
     OurSpaceship ourSpaceship;
     EnemySpaceship enemySpaceship;
     Random random;
-    ArrayList<Shot> enemyShots, ourShots;
+    ArrayList<Shot> enemyShots;
+    ArrayList<PlayerShot> ourShots;
     boolean enemyExplosion = false;
     Explosion explosion;
     ArrayList<Explosion> explosions;
@@ -64,7 +65,9 @@ public class SpaceShooter extends View {
         lifeImage = BitmapFactory.decodeResource(context.getResources(), R.drawable.life);
         handler = new Handler();
         scorePaint = new Paint();
-        scorePaint.setColor(Color.RED);
+
+        int customColor = Color.rgb(124, 176, 222); // Custom shade of gray
+        scorePaint.setColor(customColor);
         scorePaint.setTextSize(TEXT_SIZE);
         scorePaint.setTextAlign(Paint.Align.LEFT);
     }
@@ -72,7 +75,7 @@ public class SpaceShooter extends View {
     @Override
     protected void onDraw(@NonNull Canvas canvas) {
         canvas.drawBitmap(background, 0,0,null);
-        canvas.drawText("Pt: " + points, 0 , TEXT_SIZE, scorePaint);
+        canvas.drawText("Points: " + points, 0 , TEXT_SIZE, scorePaint);
         for (int i = life; i >=1; i--){
             canvas.drawBitmap(lifeImage, screenWidth - lifeImage.getWidth() * i, 0, null);
         }
@@ -159,7 +162,7 @@ public class SpaceShooter extends View {
         int touchX = (int) event.getX();
         if (event.getAction() == MotionEvent.ACTION_UP){
             if (ourShots.size() < 3){
-                Shot ourShot = new Shot(context, ourSpaceship.ox + ourSpaceship.getOurSpaceshipWidth()/2, ourSpaceship.oy);
+                PlayerShot ourShot = new PlayerShot(context, ourSpaceship.ox + ourSpaceship.getOurSpaceshipWidth()/2, ourSpaceship.oy);
                 ourShots.add(ourShot);
             }
         }
