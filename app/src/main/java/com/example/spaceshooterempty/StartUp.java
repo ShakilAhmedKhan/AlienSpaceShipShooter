@@ -14,7 +14,8 @@ public class StartUp extends AppCompatActivity {
         setContentView(R.layout.startup);
     }
     public void startGame(View v){
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, WelcomeScreen.class));
         finish();
     }
+
 }

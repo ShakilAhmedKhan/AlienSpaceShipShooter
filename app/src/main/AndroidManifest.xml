@@ -23,6 +23,11 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".WelcomeScreen"
+            android:exported="true"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
             android:name=".StartUp"
             android:exported="true"
             android:screenOrientation="landscape">
@@ -32,6 +37,7 @@
             android:exported="true"
             android:screenOrientation="landscape">
         </activity>
+
     </application>
 
 </manifest>

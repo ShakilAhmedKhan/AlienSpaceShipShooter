@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Play"
+        android:text="Play Again"
         android:textColor="#ffffff"
         android:textSize="24sp"
         android:onClick="startGame"/>
